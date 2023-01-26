@@ -1,6 +1,8 @@
 import 'package:dl_gym/widgets/account_text_field.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -132,6 +134,26 @@ class _ProfilePageState extends State<ProfilePage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
+                ),
+                const SizedBox(height: 15),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'by ',
+                        style: GoogleFonts.lato(),
+                      ),
+                      TextSpan(
+                        text: 'Simone Cascioli',
+                        style: GoogleFonts.lato(color: Colors.blue[100]),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            launchUrlString('https://fiverr.com/simlimone');
+                          },
+                      ),
+                    ],
+                  ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 80),
               ],
